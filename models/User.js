@@ -11,6 +11,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      set: (email) => email.toLowerCase(),
     },
     posts: [
       {
