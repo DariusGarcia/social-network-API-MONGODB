@@ -7,7 +7,7 @@ const postSchema = new Schema(
       type: String,
       required: 'Post cannot be empty!',
       minlength: 1,
-      maxlength: 256,
+      maxlength: 280,
     },
     username: {
       type: String,
