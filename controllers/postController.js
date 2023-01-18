@@ -39,8 +39,8 @@ const postController = {
           { new: true }
         )
       })
-      .then((singlePost) => {
-        if (!singlePost) {
+      .then((newPost) => {
+        if (!newPost) {
           return res.status(404).json({
             message:
               'New post was created but no corresponding user was found in the database.',
@@ -83,7 +83,6 @@ const postController = {
             .status(404)
             .json({ message: 'No Post found in the database with this id.' })
         }
-
         // remove Post id from user's `Posts` field
         return User.findOneAndUpdate(
           { Posts: req.params.PostId },
@@ -105,7 +104,6 @@ const postController = {
         res.status(500).json(err)
       })
   },
-
   // ADD a new reaction to a single post
   addNewReaction(req, res) {
     Post.findOneAndUpdate(
